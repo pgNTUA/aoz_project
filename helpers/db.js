@@ -9,11 +9,11 @@ async function initialize() {
     
 
     //const { host, port, user, password, database } = config.database;
-    const host = 'localhost';
-    const port = 3306;
-    const user = 'root';
-    const password = '';
-    const database = 'aozproject';
+    const host = process.env.HOST;
+    const port = process.env.DB_PORT;
+    const user = process.env.DB_USER;
+    const password = process.env.PASSWORD;
+    const database = process.env.DATABASE;
     
     const connection = await mysql.createConnection({ host, port, user, password });
 
@@ -36,4 +36,6 @@ async function initialize() {
 
     // sync all models with database
     await sequelize.sync();
+
+    
 }

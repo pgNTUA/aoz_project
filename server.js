@@ -8,7 +8,6 @@ const cors = require('cors');
 const errorHandler = require('middleware/error-handler');
 const mysql = require('mysql')
 const multer = require('multer')
-// const path = require('path')
 
 
 const upload = multer();
@@ -50,10 +49,10 @@ app.use(errorHandler);
 
 // Database connection
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "aozproject"
+    host: process.env.HOST,
+    user: process.env.DB_USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
 })
  
 db.connect(function (err) {

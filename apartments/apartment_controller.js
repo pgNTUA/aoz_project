@@ -13,9 +13,9 @@ router.put('/:id',   upload.single('image'), auth, update);
 router.delete('/:id',  auth, deleteapartment);
 
 
-function getAllApartments( next) {
+function getAllApartments(req, res, next) {
 
-    apartmentService.getAll()
+    apartmentService.getAll(res)
         .catch(next);   
 }
 
